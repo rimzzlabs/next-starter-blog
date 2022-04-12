@@ -4,4 +4,4 @@
 
 <p align="center">
   <b>A simple NEXT.js starter project with Tailwind CSS, TypeScript, and pre-configured Development Environment with Husky, Lint Staged ang Commitizen.</b>
-</p> 
+</p>
