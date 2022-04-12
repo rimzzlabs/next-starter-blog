@@ -3,5 +3,5 @@
 # <p align="center">Simple NEXT.js Starter</p>
 
 <p align="center">
-  <b>A simple NEXT.js starter project with Tailwind CSS, TypeScript, and pre-configured Development Environment with Husky, Lint Staged ang Commitizen.</b>
+  <b>A simple NEXT.js starter project with Tailwind CSS, TypeScript, and pre-configured Development Environment with Husky, Lint Staged and Commitizen.</b>
 </p>
