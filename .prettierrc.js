@@ -5,14 +5,14 @@ const config = {
   printWidth: 120,
   singleQuote: true,
   jsxSingleQuote: true,
-  trailingComma: "none",
-  arrowParens: "always",
-  endOfLine: "auto",
+  trailingComma: 'none',
+  arrowParens: 'always',
+  endOfLine: 'auto',
   // from this line to bottom, it is require dev package called @trivago/prettier-plugin-sort-imports
   // remove if you don't want to use the prettier plugin sort imports
-  importOrder: ["^@/styles/(.*)$", "^@/components(.*)$", "^@/(.*)$", "^[./]", "^"],
+  importOrder: ['^@/styles/(.*)$', '^@/components(.*)$', '^@/(.*)$', '^[./]', '^'],
   importOrderSeparation: true,
-  importOrderSortSpecifiers: true,
-};
+  importOrderSortSpecifiers: true
+}
 
-module.exports = config;
+module.exports = config

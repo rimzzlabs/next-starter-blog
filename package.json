@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint --config ./.eslintrc.js",
     "postinstall": "husky install",
-    "format": "prettier --config ./.prettierrc.js --write"
+    "format": "yarn prettier --config ./.prettierrc.js --write ."
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",
