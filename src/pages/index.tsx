@@ -1,11 +1,25 @@
-import { Layout } from '@/components'
+import UnstyledLink from '@/components/atoms/UnstyledLink'
+import Hero from '@/components/template/Hero'
+import Layout from '@/components/template/Layout'
 
 import type { NextPage } from 'next'
 
 const Home: NextPage = () => {
+  const meta = {
+    title: 'John Doe',
+    template: 'Personal Blog',
+    description: `I'm John Doe, a software engineer in one of the biggest tech industry in the world, I personally writing mostly about web development and tech careers.`
+  }
   return (
-    <Layout title='Simple Starter Project' description='A simple NEXT.js starter project with Tailwind CSS'>
-      <h1 className='text-center mt-56 md:mt-64 text-4xl md:text-6xl'>Simple NEXT.js Starter!</h1>
+    <Layout as='main' {...meta}>
+      <Hero {...meta}>
+        <p className='max-w-prose'>
+          If you want to get in touch with me, please catch me on one of my social media, I&apos;m always open when
+          I&apos;m out of my office.
+        </p>
+
+        <UnstyledLink href='/blog'>See Blog</UnstyledLink>
+      </Hero>
     </Layout>
   )
 }
