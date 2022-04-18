@@ -4,7 +4,7 @@ export const APP_ROUTE = [
     href: '/'
   },
   {
-    children: '404',
-    href: '/any'
+    children: 'Blog',
+    href: '/blog'
   }
 ]
