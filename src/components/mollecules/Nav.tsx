@@ -18,8 +18,8 @@ const Nav = () => {
           className={clsx(
             'px-1.5 py-0.5 transition font-semibold',
             pathname === item.href
-              ? 'text-main-5 dark:text-primary-2 bg-primary-1 hover:bg-primary-1 dark:bg-transparent'
-              : 'text-main-4 dark:text-main-1 hover:bg-primary-0.5 dark:hover:bg-transparent dark:hover:text-primary-3'
+              ? 'text-main-5 dark:text-primary-2 bg-primary-2 dark:bg-transparent'
+              : 'text-main-4 dark:text-main-1 hover:bg-primary-1 dark:hover:bg-transparent dark:hover:text-primary-3'
           )}
         >
           {item.children}
