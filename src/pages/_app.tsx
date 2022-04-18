@@ -5,7 +5,6 @@ import Header from '@/components/organism/Header'
 import { AnimatePresence, LazyMotion, Variants, domAnimation, m } from 'framer-motion'
 import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
-import { Fragment } from 'react'
 
 const v: Variants = {
   hidden: {
@@ -40,7 +39,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
               type: 'tween'
             }}
           >
-            <Component as={Fragment} {...pageProps} />
+            <Component {...pageProps} />
           </m.div>
         </AnimatePresence>
       </LazyMotion>
