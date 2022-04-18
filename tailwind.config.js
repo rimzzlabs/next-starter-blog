@@ -21,17 +21,17 @@ module.exports = {
           5: colors.zinc[900]
         },
         primary: {
-          0.5: colors.lime[100],
-          1: colors.lime[300],
-          2: colors.lime[400],
-          3: colors.lime[500],
-          4: colors.lime[600],
-          5: colors.lime[700]
+          0.5: colors.indigo[100],
+          1: colors.indigo[300],
+          2: colors.indigo[400],
+          3: colors.indigo[500],
+          4: colors.indigo[600],
+          5: colors.indigo[700]
         },
         secondary: {
-          1: colors.green[300],
-          2: colors.green[400],
-          3: colors.green[500]
+          1: colors.purple[300],
+          2: colors.purple[400],
+          3: colors.purple[500]
         }
       }
     }
