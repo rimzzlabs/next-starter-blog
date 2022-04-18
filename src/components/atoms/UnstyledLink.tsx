@@ -9,6 +9,11 @@ export type UnstyledLinkProps = {
   onClick?: () => void | (() => Promise<void>)
 } & LinkProps
 
+/**
+ * An anchor element, with preconfigured and conditially render different type of element
+ * base className is `inline-flex`
+ * @returns an Unstyled anchor element
+ */
 const UnstyledLink: React.FunctionComponent<UnstyledLinkProps> = ({ href, className, children, ...props }) => {
   const baseClassName = 'inline-flex'
   if (href.toString().startsWith('http')) {
