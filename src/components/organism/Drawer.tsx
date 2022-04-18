@@ -5,11 +5,11 @@ import useDrawer from '@/hooks/useDrawer'
 
 import clsx from 'clsx'
 import { Variants, m } from 'framer-motion'
+import { useRouter } from 'next/router'
 
 const container: Variants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.05, ease: 'easeOut' } },
-  exit: { opacity: 0, transition: { staggerChildren: 0.05, ease: 'easeOut' } }
+  visible: { opacity: 1, transition: { staggerChildren: 0.05, ease: 'easeOut' } }
 }
 
 const item: Variants = {
@@ -23,15 +23,12 @@ const item: Variants = {
     transition: {
       ease: 'easeOut'
     }
-  },
-  exit: {
-    opacity: 0,
-    x: -25
   }
 }
 
 const Drawer = () => {
   const { changeState } = useDrawer()
+  const { pathname } = useRouter()
 
   return (
     <aside
@@ -43,7 +40,7 @@ const Drawer = () => {
       )}
     >
       <nav className='layout flex flex-col'>
-        <m.ul variants={container} initial='hidden' animate='visible' exit='exit'>
+        <m.ul variants={container} initial='hidden' animate='visible'>
           {APP_ROUTE.map((prop, id) => (
             <m.li key={id} variants={item}>
               <UnstyledLink
@@ -53,7 +50,10 @@ const Drawer = () => {
                 className={clsx(
                   'text-left w-full',
                   'py-4 border-b font-bold',
-                  'text-main-4 dark:text-main-2 border-b-main-2 dark:border-b-main-3'
+                  'border-b-main-2',
+                  pathname === prop.href
+                    ? 'text-main-5 dark:text-main-1 dark:border-primary-2'
+                    : 'text-main-5/75 dark:text-main-2 dark:border-b-main-3'
                 )}
               >
                 {prop.children}
