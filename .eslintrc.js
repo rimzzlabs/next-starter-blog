@@ -18,7 +18,8 @@ const config = {
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/no-explicit-any': 'error',
     'import/no-duplicates': 'error',
-    'prefer-const': 'warn'
+    'prefer-const': 'warn',
+    'react-hooks/exhaustive-deps': 'off'
   }
 }
 
