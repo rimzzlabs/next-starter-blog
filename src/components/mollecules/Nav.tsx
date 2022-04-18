@@ -1,22 +1,31 @@
 import { APP_ROUTE } from '@/constant/route'
 
-import clsx from 'clsx'
-import Link from 'next/link'
+import UnstyledLink from '../atoms/UnstyledLink'
 
-export const Nav = () => (
-  <nav className={clsx('flex items-center -ml-4')}>
-    {APP_ROUTE.map((item, id) => (
-      <Link key={item.href + id} href={item.href}>
-        <a
+import clsx from 'clsx'
+import { useRouter } from 'next/router'
+
+const Nav = () => {
+  const { pathname } = useRouter()
+
+  return (
+    <nav className={clsx('md:flex items-center space-x-4', 'hidden')}>
+      {APP_ROUTE.map((item, id) => (
+        <UnstyledLink
+          key={id}
+          href={item.href}
           className={clsx(
-            'py-2 px-4 transition rounded-lg',
-            'text-main-4 dark:text-main-1',
-            'hover:bg-main-2 dark:hover:bg-main-4'
+            'px-1.5 py-0.5 transition font-semibold',
+            pathname === item.href
+              ? 'text-main-5 dark:text-primary-2 bg-primary-1 hover:bg-primary-1 dark:bg-transparent'
+              : 'text-main-4 dark:text-main-1 hover:bg-primary-0.5 dark:hover:bg-transparent dark:hover:text-primary-3'
           )}
         >
           {item.children}
-        </a>
-      </Link>
-    ))}
-  </nav>
-)
+        </UnstyledLink>
+      ))}
+    </nav>
+  )
+}
+
+export default Nav
