@@ -6,10 +6,11 @@ export type UnstyledLinkProps = {
   sr?: string
   title?: string
   className?: string
+  onClick?: () => void | (() => Promise<void>)
 } & LinkProps
 
 const UnstyledLink: React.FunctionComponent<UnstyledLinkProps> = ({ href, className, children, ...props }) => {
-  const baseClassName = 'inline-flex items-center justify-center'
+  const baseClassName = 'inline-flex'
   if (href.toString().startsWith('http')) {
     return (
       <a
@@ -26,7 +27,7 @@ const UnstyledLink: React.FunctionComponent<UnstyledLinkProps> = ({ href, classN
   }
   return (
     <Link {...props} href={href}>
-      <a title={props.sr} className={clsx(baseClassName, className)}>
+      <a title={props.sr} onClick={props.onClick} className={clsx(baseClassName, className)}>
         {props.sr && <span className='sr-only'>{props.sr}</span>}
         {children}
       </a>
