@@ -1,6 +1,6 @@
-import { APP_ROUTE } from '@/constant/route'
+import UnstyledLink from '@/components/atoms/UnstyledLink'
 
-import UnstyledLink from '../atoms/UnstyledLink'
+import { APP_ROUTE } from '@/constant/route'
 
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
@@ -12,6 +12,7 @@ const Nav = () => {
     <nav className={clsx('md:flex items-center space-x-4', 'hidden')}>
       {APP_ROUTE.map((item, id) => (
         <UnstyledLink
+          scroll={false}
           key={id}
           href={item.href}
           className={clsx(
