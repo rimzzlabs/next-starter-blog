@@ -1,4 +1,5 @@
 export interface BlogProps {
+  featured: boolean
   title: string
   summary: string
   published: string
