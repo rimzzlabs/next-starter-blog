@@ -9,8 +9,8 @@ const nextConfig = {
         'react-dom/test-utils': 'preact/test-utils',
         'react-dom': 'preact/compat'
       })
-      return config
     }
+    return config
   }
 }
 
