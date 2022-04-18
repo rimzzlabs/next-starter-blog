@@ -1,4 +1,4 @@
-<img src="https://og-image.vercel.app/**Simple%20NEXT%20Starter**%3Cbr%20%2F%3E%20_NEXT.js_%20starter%20project%20with%20Tailwind%20CSS.png?theme=dark&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-white-logo.svg" />
+<img src="https://og-image.vercel.app/**NEXT.js%20Starter%20Blog**%3Cbr%20%2F%3EStarter%20blog%20with%20MDX%2C%20Tailwind%20CSS%2C%20and%20TypeScript..png?theme=dark&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fhyper-bw-logo.svg" />
 
 # <p align="center">NEXT.js Starter Blog</p>
 
