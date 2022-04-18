@@ -1,10 +1,20 @@
 import UnstyledLink from '@/components/atoms/UnstyledLink'
+import BlogCard from '@/components/mollecules/BlogCard'
 import Hero from '@/components/template/Hero'
 import Layout from '@/components/template/Layout'
 
-import type { NextPage } from 'next'
+import { BlogProps } from '@/data/blog/blog.type'
+import getBlog from '@/helpers/getBlog'
 
-const Home: NextPage = () => {
+import { ArrowSmRightIcon } from '@heroicons/react/outline'
+import clsx from 'clsx'
+import type { GetStaticProps, NextPage } from 'next'
+
+interface HomeProps {
+  blogs: Array<BlogProps & { slug: string }>
+}
+
+const Home: NextPage<HomeProps> = ({ blogs = [] }) => {
   const meta = {
     title: process.env.NEXT_PUBLIC_OWNER_NAME as string,
     template: 'Personal Blog',
@@ -20,6 +30,7 @@ const Home: NextPage = () => {
       ]
     }
   }
+
   return (
     <Layout as='main' {...meta}>
       <Hero {...meta}>
@@ -27,11 +38,49 @@ const Home: NextPage = () => {
           If you want to get in touch with me, please catch me on one of my social media, I&apos;m always open when
           I&apos;m out of my office.
         </p>
-
-        <UnstyledLink href='/blog'>See Blog</UnstyledLink>
       </Hero>
+
+      <section>
+        <h2>Featured Post</h2>
+        {blogs.length > 0 && (
+          <ul className={clsx('grid grid-cols-1 md:grid-cols-2 gap-4 flex-auto')}>
+            {blogs.map((val) => (
+              <li key={val.slug}>
+                <BlogCard {...val} />
+              </li>
+            ))}
+          </ul>
+        )}
+        <UnstyledLink
+          href='/blog'
+          className={clsx(
+            'group',
+            'items-center space-x-1 font-medium',
+            'hover:text-primary-3 dark:hover:text-primary-2'
+          )}
+        >
+          <span>See all post</span>
+          <ArrowSmRightIcon
+            className={clsx(
+              'w-4 h-4 transition-all duration-200',
+              '-translate-x-4 group-hover:translate-x-0',
+              'opacity-0 group-hover:opacity-100'
+            )}
+          />
+        </UnstyledLink>
+      </section>
     </Layout>
   )
+}
+
+export const getStaticProps: GetStaticProps = () => {
+  const blogs = getBlog()
+
+  return {
+    props: {
+      blogs: blogs.map((b) => ({ ...b.data, slug: b.slug })).filter((b) => b.featured)
+    }
+  }
 }
 
 export default Home
