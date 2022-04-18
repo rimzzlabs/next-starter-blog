@@ -29,9 +29,9 @@ module.exports = {
           5: colors.lime[700]
         },
         secondary: {
-          1: colors.amber[300],
-          2: colors.amber[400],
-          3: colors.amber[500]
+          1: colors.green[300],
+          2: colors.green[400],
+          3: colors.green[500]
         }
       }
     }
