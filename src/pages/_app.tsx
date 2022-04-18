@@ -25,8 +25,8 @@ const v: Variants = {
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <ThemeProvider attribute='class' storageKey='theme' enableSystem>
-      <Header />
       <LazyMotion features={domAnimation}>
+        <Header />
         {/* disable initial animation to get higher score on lighthouse */}
         <AnimatePresence initial={false} onExitComplete={() => window.scrollTo(0, 0)} exitBeforeEnter>
           <m.div
