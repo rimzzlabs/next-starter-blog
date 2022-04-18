@@ -1,4 +1,4 @@
-import { Layout } from '@/components'
+import Layout from '@/components/template/Layout'
 
 import clsx from 'clsx'
 import type { NextPage } from 'next'
