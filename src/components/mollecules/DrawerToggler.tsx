@@ -4,6 +4,13 @@ import useDrawer from '@/hooks/useDrawer'
 
 import { MenuAlt4Icon, XIcon } from '@heroicons/react/outline'
 import clsx from 'clsx'
+import { AnimatePresence, Variants, m } from 'framer-motion'
+
+const v: Variants = {
+  hidden: { scale: 0 },
+  visible: { scale: 1, transition: { type: 'tween', duration: 0.05 } },
+  exit: { scale: 0 }
+}
 
 const DrawerToggler = () => {
   const { isOpen, changeState } = useDrawer()
@@ -14,14 +21,24 @@ const DrawerToggler = () => {
         onClick={changeState}
         className={clsx(
           'relative flex items-center justify-center',
-          'md:hidden w-9 h-9 rounded-md -ml-2 z-50',
+          'md:hidden w-9 h-9 rounded-md -ml- z-50',
           'text-main-5 dark:text-main-1'
         )}
       >
-        {isOpen ? <XIcon className='w-4 h-4' /> : <MenuAlt4Icon className='w-4 h-4' />}
+        <AnimatePresence exitBeforeEnter>
+          {isOpen ? (
+            <m.span key='close' variants={v} initial='hidden' animate='visible' exit='exit'>
+              <XIcon className='w-4 h-4' />
+            </m.span>
+          ) : (
+            <m.span key='open' variants={v} initial='hidden' animate='visible' exit='exit'>
+              <MenuAlt4Icon className='w-4 h-4' />
+            </m.span>
+          )}
+        </AnimatePresence>
       </button>
 
-      {isOpen && <Drawer />}
+      <AnimatePresence exitBeforeEnter>{isOpen && <Drawer />}</AnimatePresence>
     </>
   )
 }
