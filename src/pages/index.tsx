@@ -6,7 +6,7 @@ import type { NextPage } from 'next'
 
 const Home: NextPage = () => {
   const meta = {
-    title: 'John Doe',
+    title: process.env.NEXT_PUBLIC_OWNER_NAME as string,
     template: 'Personal Blog',
     description: `I'm John Doe, a software engineer in one of the biggest tech industry in the world, I personally writing mostly about web development and tech careers.`
   }
