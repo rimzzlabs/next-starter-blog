@@ -15,10 +15,11 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({ blogs = [] }) => {
+  const ownerName: string = process.env.NEXT_PUBLIC_OWNER_NAME as string
   const meta = {
-    title: process.env.NEXT_PUBLIC_OWNER_NAME as string,
+    title: ownerName,
     template: 'Personal Blog',
-    description: `I'm John Doe, a software engineer in one of the biggest tech industry in the world, I personally writing mostly about web development and tech careers.`,
+    description: `I'm ${ownerName}, a software engineer in one of the biggest tech industry in the world, I personally writing mostly about web development and tech careers.`,
     openGraph: {
       images: [
         {
