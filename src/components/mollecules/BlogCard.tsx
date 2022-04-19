@@ -8,7 +8,7 @@ const BlogCard: React.FunctionComponent<BlogProps & { slug: string }> = ({ slug,
   return (
     <UnstyledLink
       className={clsx(
-        'flex-col p-4',
+        'flex-col p-4 w-full',
         'border rounded-lg transition',
         'border-main-2 dark:border-main-3',
         'hover:border-main-4 dark:hover:border-main-2'
