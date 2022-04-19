@@ -18,7 +18,7 @@ interface LayoutProps extends CustomSeoProps {
  * with a CustomSeo component and the children prop.
  */
 const Layout: React.FunctionComponent<LayoutProps> = ({ children, as = 'div', ...props }) => {
-  return React.createElement(as, { className: 'layout mt-20' }, <CustomSeo {...props} />, children)
+  return React.createElement(as, { className: 'layout my-20' }, <CustomSeo {...props} />, children)
 }
 
 export default Layout
