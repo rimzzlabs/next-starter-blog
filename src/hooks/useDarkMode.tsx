@@ -18,6 +18,12 @@ const useDarkMode = () => {
     setMounted(true)
   }, [])
 
+  useEffect(() => {
+    if (currentTheme) {
+      setTheme(currentTheme)
+    }
+  }, [currentTheme])
+
   return {
     mounted,
     changeTheme,
