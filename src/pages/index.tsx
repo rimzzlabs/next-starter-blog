@@ -1,5 +1,5 @@
 import UnstyledLink from '@/components/atoms/UnstyledLink'
-import BlogCard from '@/components/mollecules/BlogCard'
+import BlogList from '@/components/organism/BlogList'
 import Hero from '@/components/template/Hero'
 import Layout from '@/components/template/Layout'
 
@@ -40,17 +40,7 @@ const Home: NextPage<HomeProps> = ({ blogs = [] }) => {
         </p>
       </Hero>
 
-      <section>
-        <h2>Featured Post</h2>
-        {blogs.length > 0 && (
-          <ul className={clsx('grid grid-cols-1 md:grid-cols-2 gap-4 flex-auto')}>
-            {blogs.map((val) => (
-              <li key={val.slug}>
-                <BlogCard {...val} />
-              </li>
-            ))}
-          </ul>
-        )}
+      <BlogList blogs={blogs} title='Featured Post'>
         <UnstyledLink
           href='/blog'
           className={clsx(
@@ -68,7 +58,7 @@ const Home: NextPage<HomeProps> = ({ blogs = [] }) => {
             )}
           />
         </UnstyledLink>
-      </section>
+      </BlogList>
     </Layout>
   )
 }
