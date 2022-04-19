@@ -31,7 +31,8 @@ const UnstyledLink: React.FunctionComponent<UnstyledLinkProps> = ({ href, classN
     )
   }
   return (
-    <Link {...props} href={href}>
+    // DISABLE DEFAULT SCROLL TO TOP ON NEXTJS LINK
+    <Link {...props} scroll={false} href={href}>
       <a title={props.sr} onClick={props.onClick} className={clsx(baseClassName, className)}>
         {props.sr && <span className='sr-only'>{props.sr}</span>}
         {children}
