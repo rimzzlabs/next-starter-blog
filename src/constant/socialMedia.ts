@@ -1,19 +1,19 @@
-interface SocialMediaProps {
+export interface SocialMediaProps {
   href: string
-  platform: string
+  children: string
 }
 
 export const socialMedia: Array<SocialMediaProps> = [
   {
-    platform: 'Instagram',
+    children: 'Instagram',
     href: 'https://instagram.com/john-doe'
   },
   {
-    platform: 'Twitter',
+    children: 'Twitter',
     href: 'https://twitter.com/john-doe'
   },
   {
-    platform: 'Linkedin',
+    children: 'Linkedin',
     href: 'https://linkedin.com/in/john-doe'
   }
 ]
