@@ -12,7 +12,6 @@ const Nav = () => {
     <nav className={clsx('md:flex items-center space-x-4', 'hidden')}>
       {APP_ROUTE.map((item, id) => (
         <UnstyledLink
-          scroll={false}
           key={id}
           href={item.href}
           className={clsx(
