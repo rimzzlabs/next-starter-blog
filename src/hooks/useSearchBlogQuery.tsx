@@ -1,12 +1,12 @@
 import { BlogProps } from '@/data/blog/blog.type'
-import * as atom from '@/stores'
 
-import { useAtom } from 'jotai'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
-const useSearchBlogQuery = (blogList: Array<BlogProps>) => {
-  const [query, setQuery] = useAtom(atom.atomSearchBlogQuery)
-  const [filteredBlog, setFilteredBlog] = useAtom(atom.atomBlog)
+type BlogList = Array<BlogProps & { slug: string }>
+
+const useSearchBlogQuery = (blogList: BlogList) => {
+  const [query, setQuery] = useState('')
+  const [filteredBlog, setFilteredBlog] = useState<BlogList>([])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)
 
@@ -14,7 +14,7 @@ const useSearchBlogQuery = (blogList: Array<BlogProps>) => {
     const blogs = blogList.filter(
       (blog) =>
         blog.title.toLowerCase().includes(query.toLocaleLowerCase()) ||
-        blog.tags.map((t) => t.toLowerCase().includes(query.toLowerCase()))
+        blog.tags.forEach((t) => t.toLowerCase().includes(query.toLowerCase()))
     )
     setFilteredBlog(blogs)
   }, [query])
