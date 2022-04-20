@@ -8,7 +8,7 @@ import clsx from 'clsx'
 const Footer = () => {
   const ownwer = process.env.NEXT_PUBLIC_OWNER_NAME
   return (
-    <footer className={clsx('mt-20 pt-10 pb-6 w-full border-t', 'border-main-2 dark:border-main-3')}>
+    <footer className={clsx('layout', 'mt-20 py-10 border-t', 'border-main-2 dark:border-main-3')}>
       <section className='flex items-stretch gap-8 w-full'>
         <FooterLinks data={APP_ROUTE} />
         <FooterLinks data={socialMedia} />
