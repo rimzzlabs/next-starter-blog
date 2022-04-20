@@ -48,12 +48,11 @@ const Drawer = () => {
                 href={prop.href}
                 onClick={changeState}
                 className={clsx(
-                  'text-left w-full',
-                  'py-4 border-b font-bold',
-                  'border-b-main-2',
+                  'inline-flex text-left w-full',
+                  'py-4 border-b-2 font-bold',
                   pathname === prop.href
-                    ? 'text-main-5 dark:text-main-1 dark:border-primary-2'
-                    : 'text-main-5/75 dark:text-main-2 dark:border-b-main-3'
+                    ? 'text-main-5 dark:text-main-1 border-primary-4 dark:border-primary-2'
+                    : 'text-main-5/75 dark:text-main-2 border-main-2 dark:border-b-main-3'
                 )}
               >
                 {prop.children}
