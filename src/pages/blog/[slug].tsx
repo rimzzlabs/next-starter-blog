@@ -3,6 +3,7 @@ import Layout from '@/components/template/Layout'
 
 import { BlogProps } from '@/data/blog/blog.type'
 import getBlog, { getBlogBySlug } from '@/helpers/getBlog'
+import useMediaQuery from '@/hooks/useMediaQuery'
 import useMetaData from '@/hooks/useMetaData'
 import { dateFormat } from '@/libs/dateFormat'
 
@@ -24,6 +25,7 @@ interface BlogPostProps {
 
 const BlogPost: NextPage<BlogPostProps> = ({ data, mdxSource }) => {
   const metaData = useMetaData(data)
+  const isMediumScreen = useMediaQuery('(min-width: 768px)')
 
   return (
     <Layout {...metaData} as='main' title={data.title} description={data.summary}>
@@ -34,7 +36,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ data, mdxSource }) => {
             alt={data.title}
             display='intrinsic'
             width={768}
-            height={376}
+            height={isMediumScreen ? 376 : 468}
             objectFit='cover'
             className='rounded'
           />
