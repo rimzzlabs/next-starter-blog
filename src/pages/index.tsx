@@ -53,7 +53,7 @@ const Home: NextPage<HomeProps> = ({ blogs = [] }) => {
           <span>See all post</span>
           <ArrowSmRightIcon
             className={clsx(
-              'w-4 h-4 transition-all duration-200',
+              'inline-flex w-4 h-4 transition-all duration-200',
               '-translate-x-4 group-hover:translate-x-0',
               'opacity-0 group-hover:opacity-100'
             )}
