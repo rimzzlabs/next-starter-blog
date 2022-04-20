@@ -1,5 +1,5 @@
 {
-  "name": "simple-next-starter",
+  "name": "next-starter-blog",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint --config ./.eslintrc.js",
     "postinstall": "husky install",
+    "postbuild": "next-sitemap --config next-sitemap.js",
     "format": "yarn prettier --config ./.prettierrc.js --write ."
   },
   "dependencies": {
