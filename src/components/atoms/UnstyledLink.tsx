@@ -15,16 +15,9 @@ export type UnstyledLinkProps = {
  * @returns an Unstyled anchor element
  */
 const UnstyledLink: React.FunctionComponent<UnstyledLinkProps> = ({ href, className, children, ...props }) => {
-  const baseClassName = 'inline-flex'
   if (href.toString().startsWith('http')) {
     return (
-      <a
-        {...props}
-        href={href as string}
-        className={clsx(baseClassName, className)}
-        target='_blank'
-        rel='noopener noreferrer'
-      >
+      <a {...props} href={href as string} className={clsx(className)} target='_blank' rel='noopener noreferrer'>
         {props.sr && <span className='sr-only'>{props.sr}</span>}
         {children}
       </a>
@@ -33,7 +26,7 @@ const UnstyledLink: React.FunctionComponent<UnstyledLinkProps> = ({ href, classN
   return (
     // DISABLE DEFAULT SCROLL TO TOP ON NEXTJS LINK
     <Link {...props} scroll={false} href={href}>
-      <a title={props.sr} onClick={props.onClick} className={clsx(baseClassName, className)}>
+      <a title={props.sr} onClick={props.onClick} className={clsx(className)}>
         {props.sr && <span className='sr-only'>{props.sr}</span>}
         {children}
       </a>
