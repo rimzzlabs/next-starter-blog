@@ -1,5 +1,6 @@
 import '@/styles/tailwind.css'
 
+import Footer from '@/components/organism/Footer'
 import Header from '@/components/organism/Header'
 
 import { AnimatePresence, LazyMotion, Variants, domAnimation, m } from 'framer-motion'
@@ -40,6 +41,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
             }}
           >
             <Component {...pageProps} />
+            <Footer />
           </m.div>
         </AnimatePresence>
       </LazyMotion>
