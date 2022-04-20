@@ -14,7 +14,10 @@ const FooterLinks: React.FunctionComponent<FooterLinkProps> = ({ data }) => {
     <div className='flex flex-col gap-2 w-full'>
       {data.map((val) => (
         <UnstyledLink
-          className={clsx('max-w-max transition', 'hover:text-primary-4 dark:hover:text-primary-2')}
+          className={clsx(
+            'max-w-max transition text-sm md:text-base',
+            'hover:text-primary-4 dark:hover:text-primary-2'
+          )}
           key={val.href}
           href={val.href}
         >
