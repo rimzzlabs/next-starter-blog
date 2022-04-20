@@ -17,7 +17,7 @@ const BlogList: React.FunctionComponent<BlogListProps> = ({ blogs, children, tit
     <section className={className}>
       <h2>{title}</h2>
       {blogs.length > 0 && (
-        <ul className={clsx('grid grid-cols-1 gap-4 flex-auto', layout === 'row' && 'md:grid-cols-2')}>
+        <ul className={clsx('grid grid-cols-1 gap-4 flex-auto my-4', layout === 'row' && 'md:grid-cols-2')}>
           {blogs.map((val) => (
             <li key={val.slug}>
               <BlogCard {...val} />
