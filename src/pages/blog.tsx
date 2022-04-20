@@ -20,7 +20,7 @@ interface BlogPageProps {
 }
 
 const BlogPage: NextPage<BlogPageProps> = ({ latestPost = [], allPost = [] }) => {
-  const { query, handleChange, filteredBlog } = useSearchBlogQuery(latestPost)
+  const { query, handleChange, filteredBlog } = useSearchBlogQuery(allPost)
 
   return (
     <Layout as='main' {...meta}>
