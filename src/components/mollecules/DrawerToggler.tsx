@@ -1,3 +1,4 @@
+import Button from '@/components/atoms/Button'
 import Drawer from '@/components/organism/Drawer'
 
 import useDrawer from '@/hooks/useDrawer'
@@ -17,8 +18,9 @@ const DrawerToggler = () => {
 
   return (
     <>
-      <button
+      <Button
         onClick={changeState}
+        screenReaderText='toggle drawer'
         className={clsx(
           'relative flex items-center justify-center',
           'md:hidden w-9 h-9 rounded-md -ml- z-50',
@@ -36,7 +38,7 @@ const DrawerToggler = () => {
             </m.span>
           )}
         </AnimatePresence>
-      </button>
+      </Button>
 
       <AnimatePresence exitBeforeEnter>{isOpen && <Drawer />}</AnimatePresence>
     </>

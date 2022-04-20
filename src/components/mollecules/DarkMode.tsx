@@ -1,3 +1,5 @@
+import Button from '@/components/atoms/Button'
+
 import useDarkMode from '@/hooks/useDarkMode'
 
 import { MoonIcon, SunIcon } from '@heroicons/react/solid'
@@ -9,8 +11,9 @@ const DarkMode = () => {
   if (!mounted) return null
 
   return (
-    <button
+    <Button
       onClick={changeTheme}
+      screenReaderText='Switch to dark mode or light mode'
       className={clsx(
         'inline-flex items-center justify-center',
         'w-9 h-9 rounded-lg transition-all hover:ring',
@@ -24,7 +27,7 @@ const DarkMode = () => {
       ) : (
         <MoonIcon className='w-4 md:w-5 h-4 md:h-5 text-main-3' />
       )}
-    </button>
+    </Button>
   )
 }
 

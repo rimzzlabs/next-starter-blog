@@ -32,6 +32,7 @@ const Drawer = () => {
 
   return (
     <aside
+      aria-labelledby='toggle drawer'
       className={clsx(
         'fixed left-0 bottom-0 top-20 z-50',
         'w-screen h-screen backdrop-blur',
