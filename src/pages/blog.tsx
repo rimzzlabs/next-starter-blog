@@ -46,10 +46,14 @@ export const getStaticProps: GetStaticProps = () => {
   return {
     props: {
       latestPost: blogs
+        // map the blogs and add slug property,
         .map((b) => ({ ...b.data, slug: b.slug }))
+        // sort descending by date
         .sort((a, b) =>
           new Date(a.published) > new Date(a.published) ? 1 : new Date(a.published) < new Date(b.published) ? -1 : 0
-        ),
+        )
+        // cut the first 3 and so on, leave only 2 latest post
+        .slice(0, 2),
       allPost: blogs.map((b) => ({ ...b.data, slug: b.slug }))
     }
   }
