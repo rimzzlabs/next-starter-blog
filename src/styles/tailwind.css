@@ -27,11 +27,11 @@
     @apply w-[86%] md:max-w-3xl mx-auto;
   }
 
-  :is(h1, h2) ~ *:first-of-type {
+  :is(h1, h2) ~ p:first-of-type {
     @apply mt-[1.5em];
   }
 
-  h1 ~ *:not(:first-of-type) {
+  :is(h1, h2) ~ p:not(:first-of-type) {
     @apply mt-[0.875em];
   }
 }
