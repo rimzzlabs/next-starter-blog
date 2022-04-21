@@ -24,7 +24,7 @@
   }
 
   .layout {
-    @apply w-[86%] md:max-w-3xl mx-auto;
+    @apply w-[86%] md:max-w-2xl mx-auto;
   }
 
   :is(h1, h2) ~ p:first-of-type {
