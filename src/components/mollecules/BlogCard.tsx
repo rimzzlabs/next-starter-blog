@@ -4,7 +4,12 @@ import { BlogProps } from '@/data/blog/blog.type'
 
 import clsx from 'clsx'
 
-const BlogCard: React.FunctionComponent<BlogProps & { slug: string }> = ({ slug, title, tags }) => {
+interface BlogCardProps extends BlogProps {
+  slug: string
+  layout: 'row' | 'column'
+}
+
+const BlogCard: React.FunctionComponent<BlogCardProps> = ({ slug, title, summary, layout = 'row' }) => {
   return (
     <UnstyledLink
       className={clsx(
@@ -15,12 +20,8 @@ const BlogCard: React.FunctionComponent<BlogProps & { slug: string }> = ({ slug,
       )}
       href={`/blog/${slug}`}
     >
-      <h3 className='mb-2'>{title}</h3>
-      <div className='flex items-center space-x-2 mt-auto'>
-        {tags.map((t) => (
-          <span key={t}>#{t.toLowerCase()}</span>
-        ))}
-      </div>
+      <h3>{title}</h3>
+      {layout === 'column' && <p className='mt-[0.675em]'>{summary}</p>}
     </UnstyledLink>
   )
 }

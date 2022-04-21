@@ -20,7 +20,7 @@ const BlogList: React.FunctionComponent<BlogListProps> = ({ blogs, children, tit
         <ul className={clsx('grid grid-cols-1 gap-4 flex-auto my-4', layout === 'row' && 'md:grid-cols-2')}>
           {blogs.map((val) => (
             <li key={val.slug}>
-              <BlogCard {...val} />
+              <BlogCard layout={layout} {...val} />
             </li>
           ))}
         </ul>
