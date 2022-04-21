@@ -30,14 +30,17 @@ const Pre: React.FunctionComponent<PreProps> = ({ children, className }) => {
     <div className='relative'>
       <div
         className={clsx(
-          'absolute left-0 top-0',
-          'inline-flex items-center justify-center',
-          'px-4 h-11 rounded-tl rounded-br',
+          'absolute left-0 right-12',
+          'h-11 rounded-tl rounded-br',
           'font-semibold text-sm',
           'bg-slate-700 dark:bg-slate-800 text-main-1.5'
         )}
       >
-        {className?.replace('language-', '').toUpperCase()}
+        <div
+          className={clsx('inline-flex items-center justify-start', 'px-4 md:px-8 h-full rounded-tl', 'bg-primary-4')}
+        >
+          {className?.replace('language-', '').toUpperCase()}
+        </div>
       </div>
 
       <div
@@ -65,7 +68,7 @@ const Pre: React.FunctionComponent<PreProps> = ({ children, className }) => {
           )}
         </Button>
       </div>
-      <pre ref={preRef} style={{ paddingTop: '4rem' }} className={className}>
+      <pre ref={preRef} style={{ paddingTop: '3.5rem' }} className={className}>
         {children}
       </pre>
     </div>
