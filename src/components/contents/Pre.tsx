@@ -40,23 +40,31 @@ const Pre: React.FunctionComponent<PreProps> = ({ children, className }) => {
         {className?.replace('language-', '').toUpperCase()}
       </div>
 
-      <Button
-        onClick={copyToClipboard}
-        screenReaderText='Copy To Clipboard'
+      <div
         className={clsx(
-          'absolute right-4 top-4',
-          'inline-flex items-center justify-center',
-          'w-9 h-10 rounded-lg transition-all duration-200',
-          'bg-slate-700 dark:bg-slate-800 ring-main-2',
-          'hover:ring'
+          'absolute top-0 right-0',
+          'flex items-center justify-center',
+          'w-11 h-11 rounded-tr rounded-bl',
+          'bg-slate-700 dark:bg-slate-800'
         )}
       >
-        {isCopied ? (
-          <CheckCircleIcon className='w-4 h-4 text-emerald-500' />
-        ) : (
-          <ClipboardCopyIcon className='w-4 h-4 text-main-1' />
-        )}
-      </Button>
+        <Button
+          onClick={copyToClipboard}
+          screenReaderText='Copy To Clipboard'
+          className={clsx(
+            'group relative inline-flex items-center justify-center',
+            'w-8 h-8 rounded-lg transition-all duration-200',
+            'ring-main-2',
+            'hover:ring'
+          )}
+        >
+          {isCopied ? (
+            <CheckCircleIcon className='w-4 h-4 text-emerald-500' />
+          ) : (
+            <ClipboardCopyIcon className='w-4 h-4 text-main-1' />
+          )}
+        </Button>
+      </div>
       <pre ref={preRef} style={{ paddingTop: '4rem' }} className={className}>
         {children}
       </pre>
