@@ -1,4 +1,5 @@
 import CustomImage from '@/components/mollecules/CustomImage'
+import MDXComponents from '@/components/organism/MDXComponents'
 import Layout from '@/components/template/Layout'
 
 import { BlogProps } from '@/data/blog/blog.type'
@@ -53,7 +54,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ data, mdxSource }) => {
             'prose-a:no-underline prose-a:font-semibold prose-a:text-primary-4'
           )}
         >
-          <MDXRemote {...mdxSource} />
+          <MDXRemote {...mdxSource} components={MDXComponents as unknown as Record<string, React.ReactNode>} />
         </section>
       </article>
     </Layout>
