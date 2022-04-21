@@ -6,11 +6,11 @@ import { BlogProps } from '@/data/blog/blog.type'
 import getBlog, { getBlogBySlug } from '@/helpers/getBlog'
 import useMediaQuery from '@/hooks/useMediaQuery'
 import useMetaData from '@/hooks/useMetaData'
-import { dateFormat } from '@/libs/dateFormat'
+import { dateFormat, dateStringToISO } from '@/libs/dateFormat'
 
 import clsx from 'clsx'
 import { GetStaticPaths, GetStaticPathsResult, GetStaticProps, NextPage } from 'next'
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { MDXRemote, MDXRemoteProps, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import 'prism-themes/themes/prism-night-owl.css'
 import { ParsedUrlQuery } from 'querystring'
@@ -42,10 +42,22 @@ const BlogPost: NextPage<BlogPostProps> = ({ data, mdxSource }) => {
             className='rounded'
           />
         </figure>
-        <section className='border-b max-w-prose border-main-2 dark:border-main-3 py-10'>
-          <h1>{data.title}</h1>
-          <p className='text-sm'>Published on {dateFormat(data.published)}</p>
-          <p className='text-sm'>Written by {data.author_name}</p>
+        <section className='border-b border-main-2 dark:border-main-3 py-10'>
+          <h1 className='mb-8 md:text-5xl'>{data.title}</h1>
+          <div className='flex items-center gap-4'>
+            <CustomImage
+              display='intrinsic'
+              width={32}
+              height={32}
+              src={data.author_image ?? '/static/avatar.jpg'}
+              alt={data.author_name}
+              className='rounded-full'
+            />
+            <p className='text-sm md:text-base'>
+              Written by {data.author_name} — on{' '}
+              <time dateTime={dateStringToISO(data.published)}>{dateFormat(data.published)}</time>
+            </p>
+          </div>
         </section>
 
         <section
@@ -54,7 +66,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ data, mdxSource }) => {
             'prose-a:no-underline prose-a:font-semibold prose-a:text-primary-4'
           )}
         >
-          <MDXRemote {...mdxSource} components={MDXComponents as unknown as Record<string, React.ReactNode>} />
+          <MDXRemote {...mdxSource} components={MDXComponents as MDXRemoteProps['components']} />
         </section>
       </article>
     </Layout>
