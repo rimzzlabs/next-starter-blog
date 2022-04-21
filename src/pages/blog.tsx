@@ -28,7 +28,7 @@ const BlogPage: NextPage<BlogPageProps> = ({ latestPost = [], allPost = [] }) =>
 
       <Searchbar onChange={handleChange} value={query} placeholder='Search Posts..' />
 
-      {query.length === 0 && <BlogList blogs={latestPost} title='Latest Post' className='mb-20' />}
+      {query.length === 0 && <BlogList blogs={latestPost} title='Latest Post' className='mb-20' layout='column' />}
       {query.length === 0 && <BlogList blogs={allPost} title='All Post' layout='column' />}
 
       {query.length > 0 && filteredBlog.length > 0 ? (
