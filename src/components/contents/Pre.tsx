@@ -32,7 +32,7 @@ const Pre: React.FunctionComponent<PreProps> = ({ children, className }) => {
         className={clsx(
           'absolute left-0 top-0',
           'inline-flex items-center justify-center',
-          'w-11 h-11 rounded-tl rounded-br',
+          'px-4 h-11 rounded-tl rounded-br',
           'font-semibold text-sm',
           'bg-slate-700 dark:bg-slate-800 text-main-1.5'
         )}
