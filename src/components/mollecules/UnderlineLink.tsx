@@ -15,7 +15,7 @@ const UnderlineLink: React.FC<UnderlineLinkProps> = ({ children, ...props }) => 
         'after:absolute after:-bottom-0.5 after:left-0 hover:after:w-full',
         'after:h-[3px] after:w-0 after:transition-all after:duration-300',
         'after:bg-primary-3 dark:after:bg-primary-2',
-        'text-primary-4 dark:text-primary-2 hover:text-primary-5 dark:hover:text-primary-4'
+        'text-primary-4 dark:text-primary-2 hover:text-primary-2 dark:hover:text-primary-3'
       )}
       {...props}
     >
