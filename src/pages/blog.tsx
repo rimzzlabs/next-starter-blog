@@ -40,8 +40,8 @@ const BlogPage: NextPage<BlogPageProps> = ({ latestPost = [], allPost = [] }) =>
   )
 }
 
-export const getStaticProps: GetStaticProps = () => {
-  const blogs = getBlog()
+export const getStaticProps: GetStaticProps = async () => {
+  const blogs = await getBlog()
 
   return {
     props: {

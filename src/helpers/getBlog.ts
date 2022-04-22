@@ -2,7 +2,7 @@ import { BlogProps } from '@/data/blog/blog.type'
 
 import getPathDirectory, { CONTENT_DIRECTORY } from './getPathDirectory'
 
-import fs from 'fs'
+import fs from 'fs/promises'
 import matter from 'gray-matter'
 import path from 'path'
 
@@ -18,9 +18,9 @@ import path from 'path'
  * @param slug - the slug of the blog post
  * @returns The data and content of the blog post.
  */
-export const getBlogBySlug = (slug: string) => {
+export const getBlogBySlug = async (slug: string) => {
   const PATH_DIR = path.join(`${CONTENT_DIRECTORY}/blog`, `${slug}.mdx`)
-  const file = fs.readFileSync(PATH_DIR, 'utf8')
+  const file = await fs.readFile(PATH_DIR, 'utf8')
 
   const { data, content } = matter(file)
 
@@ -40,12 +40,12 @@ export const getBlogBySlug = (slug: string) => {
  * The data is typed as BlogProps, which we can see at '@/data/blog/blog.type.ts'
  * @returns An array of objects.
  */
-const getBlog = () => {
-  const paths = getPathDirectory('/blog')
+const getBlog = async () => {
+  const paths = await getPathDirectory('/blog')
 
-  return paths.map((p) => {
+  const files = paths.map(async (p) => {
     const PATH_DIR = path.join(`${CONTENT_DIRECTORY}/blog`, p)
-    const file = fs.readFileSync(PATH_DIR, 'utf8')
+    const file = await fs.readFile(PATH_DIR, 'utf8')
 
     const { data, content } = matter(file)
 
@@ -55,6 +55,8 @@ const getBlog = () => {
       content
     }
   })
+
+  return await Promise.all(files)
 }
 
 export default getBlog

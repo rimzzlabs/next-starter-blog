@@ -64,8 +64,8 @@ const Home: NextPage<HomeProps> = ({ blogs = [] }) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = () => {
-  const blogs = getBlog()
+export const getStaticProps: GetStaticProps = async () => {
+  const blogs = await getBlog()
 
   return {
     props: {

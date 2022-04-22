@@ -73,8 +73,8 @@ const BlogPost: NextPage<BlogPostProps> = ({ data, mdxSource }) => {
   )
 }
 
-export const getStaticPaths: GetStaticPaths = () => {
-  const blogs = getBlog()
+export const getStaticPaths: GetStaticPaths = async () => {
+  const blogs = await getBlog()
 
   const paths = blogs.map((blog) => ({ params: { slug: blog.slug } })) as GetStaticPathsResult['paths']
 
@@ -89,7 +89,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const mdxPrism = require('mdx-prism')
 
   const { slug } = ctx.params as URLSlug
-  const blog = getBlogBySlug(slug)
+  const blog = await getBlogBySlug(slug)
 
   const mdxSource = await serialize(blog.content, { mdxOptions: { rehypePlugins: [mdxPrism] } })
 
