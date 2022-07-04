@@ -1,10 +1,12 @@
+import { twclsx } from '@/libs/twclsx'
+
 interface BlockQuoteProps {
   children: React.ReactNode
 }
 
 const Blockquote: React.FunctionComponent<BlockQuoteProps> = ({ children }) => {
   return (
-    <blockquote className='from-primary-3 to-secondary-3'>
+    <blockquote className={twclsx('from-primary-3 to-secondary-3')}>
       <style jsx>
         {`
           blockquote {

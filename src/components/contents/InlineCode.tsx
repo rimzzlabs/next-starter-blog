@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import { twclsx } from '@/libs/twclsx'
 
 interface InlineCodeProps {
   children: React.ReactNode
@@ -6,7 +6,7 @@ interface InlineCodeProps {
 
 const InlineCode: React.FunctionComponent<InlineCodeProps> = ({ children }) => {
   return (
-    <code className={clsx('px-2 py-1 rounded border', 'dark:text-main-1', 'border-main-2 dark:border-main-3')}>
+    <code className={twclsx('px-2 py-1 rounded border', 'dark:text-main-1', 'border-main-2 dark:border-main-3')}>
       {children}
     </code>
   )

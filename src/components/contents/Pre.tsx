@@ -1,7 +1,8 @@
 import Button from '@/components/atoms/Button'
 
+import { twclsx } from '@/libs/twclsx'
+
 import { CheckCircleIcon, ClipboardCopyIcon } from '@heroicons/react/solid'
-import clsx from 'clsx'
 import { useEffect, useRef, useState } from 'react'
 
 interface PreProps {
@@ -27,9 +28,9 @@ const Pre: React.FunctionComponent<PreProps> = ({ children, className }) => {
   }, [isCopied])
 
   return (
-    <div className='relative'>
+    <div className={twclsx('relative')}>
       <div
-        className={clsx(
+        className={twclsx(
           'absolute left-0 right-12',
           'h-11 rounded-tl rounded-br',
           'font-semibold text-sm',
@@ -37,14 +38,14 @@ const Pre: React.FunctionComponent<PreProps> = ({ children, className }) => {
         )}
       >
         <div
-          className={clsx('inline-flex items-center justify-start', 'px-4 md:px-8 h-full rounded-tl', 'bg-primary-4')}
+          className={twclsx('inline-flex items-center justify-start', 'px-4 md:px-8 h-full rounded-tl', 'bg-primary-4')}
         >
           {className?.replace('language-', '').toUpperCase()}
         </div>
       </div>
 
       <div
-        className={clsx(
+        className={twclsx(
           'absolute top-0 right-0',
           'flex items-center justify-center',
           'w-11 h-11 rounded-tr rounded-bl',
@@ -54,8 +55,9 @@ const Pre: React.FunctionComponent<PreProps> = ({ children, className }) => {
         <Button
           onClick={copyToClipboard}
           screenReaderText='Copy To Clipboard'
-          className={clsx(
-            'group relative inline-flex items-center justify-center',
+          className={twclsx(
+            'group relative',
+            'inline-flex items-center justify-center',
             'w-8 h-8 rounded-lg transition-all duration-200',
             'ring-main-2',
             'hover:ring'
@@ -68,7 +70,7 @@ const Pre: React.FunctionComponent<PreProps> = ({ children, className }) => {
           )}
         </Button>
       </div>
-      <pre ref={preRef} style={{ paddingTop: '3.5rem' }} className={className}>
+      <pre ref={preRef} className={twclsx('pt-[3.5rem!important]')}>
         {children}
       </pre>
     </div>

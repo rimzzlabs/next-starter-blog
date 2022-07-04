@@ -5,9 +5,9 @@ import Layout from '@/components/template/Layout'
 
 import { BlogProps } from '@/data/blog/blog.type'
 import getBlog from '@/helpers/getBlog'
+import { twclsx } from '@/libs/twclsx'
 
 import { ArrowSmRightIcon } from '@heroicons/react/outline'
-import clsx from 'clsx'
 import type { GetStaticProps, NextPage } from 'next'
 
 interface HomeProps {
@@ -35,7 +35,7 @@ const Home: NextPage<HomeProps> = ({ blogs = [] }) => {
   return (
     <Layout as='main' {...meta}>
       <Hero {...meta}>
-        <p className='max-w-prose'>
+        <p className={twclsx('max-w-prose')}>
           If you want to get in touch with me, please catch me on one of my social media, I&apos;m always open when
           I&apos;m out of my office.
         </p>
@@ -44,7 +44,7 @@ const Home: NextPage<HomeProps> = ({ blogs = [] }) => {
       <BlogList blogs={blogs} title='Featured Post'>
         <UnstyledLink
           href='/blog'
-          className={clsx(
+          className={twclsx(
             'group',
             'items-center space-x-1 font-medium',
             'hover:text-primary-3 dark:hover:text-primary-2'
@@ -52,7 +52,7 @@ const Home: NextPage<HomeProps> = ({ blogs = [] }) => {
         >
           <span>See all post</span>
           <ArrowSmRightIcon
-            className={clsx(
+            className={twclsx(
               'inline-flex w-4 h-4 transition-all duration-200',
               '-translate-x-4 group-hover:translate-x-0',
               'opacity-0 group-hover:opacity-100'

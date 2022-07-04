@@ -2,9 +2,9 @@ import Button from '@/components/atoms/Button'
 import Drawer from '@/components/organism/Drawer'
 
 import useDrawer from '@/hooks/useDrawer'
+import { twclsx } from '@/libs/twclsx'
 
 import { MenuAlt4Icon, XIcon } from '@heroicons/react/outline'
-import clsx from 'clsx'
 import { AnimatePresence, Variants, m } from 'framer-motion'
 
 const v: Variants = {
@@ -21,7 +21,7 @@ const DrawerToggler = () => {
       <Button
         onClick={changeState}
         screenReaderText='toggle drawer'
-        className={clsx(
+        className={twclsx(
           'relative flex items-center justify-center',
           'md:hidden w-9 h-9 rounded-md -ml- z-50',
           'text-main-5 dark:text-main-1'

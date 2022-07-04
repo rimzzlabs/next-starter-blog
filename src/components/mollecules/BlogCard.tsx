@@ -1,8 +1,7 @@
 import UnstyledLink from '@/components/atoms/UnstyledLink'
 
 import { BlogProps } from '@/data/blog/blog.type'
-
-import clsx from 'clsx'
+import { twclsx } from '@/libs/twclsx'
 
 interface BlogCardProps extends BlogProps {
   slug: string
@@ -12,7 +11,7 @@ interface BlogCardProps extends BlogProps {
 const BlogCard: React.FunctionComponent<BlogCardProps> = ({ slug, title, summary, layout = 'row' }) => {
   return (
     <UnstyledLink
-      className={clsx(
+      className={twclsx(
         'flex flex-col p-4 w-full h-full',
         'border rounded-lg transition',
         'border-main-2 dark:border-main-3',

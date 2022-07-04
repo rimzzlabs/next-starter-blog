@@ -1,9 +1,8 @@
+import UnstyledLink from '@/components/atoms/UnstyledLink'
+
 import { AppRoute } from '@/constant/route'
 import { SocialMediaProps } from '@/constant/socialMedia'
-
-import UnstyledLink from '../atoms/UnstyledLink'
-
-import clsx from 'clsx'
+import { twclsx } from '@/libs/twclsx'
 
 interface FooterLinkProps<T = SocialMediaProps | AppRoute> {
   data: Array<T>
@@ -11,10 +10,10 @@ interface FooterLinkProps<T = SocialMediaProps | AppRoute> {
 
 const FooterLinks: React.FunctionComponent<FooterLinkProps> = ({ data }) => {
   return (
-    <div className='flex flex-col gap-2 w-full'>
+    <div className={twclsx('flex flex-col gap-2 w-full')}>
       {data.map((val) => (
         <UnstyledLink
-          className={clsx(
+          className={twclsx(
             'max-w-max transition text-sm md:text-base',
             'hover:text-primary-4 dark:hover:text-primary-2'
           )}

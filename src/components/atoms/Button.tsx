@@ -1,4 +1,4 @@
-import React from 'react'
+import { createElement } from 'react'
 
 export interface ButtonProps {
   children: React.ReactNode
@@ -9,7 +9,7 @@ export interface ButtonProps {
 }
 
 const Button: React.FunctionComponent<ButtonProps> = ({ children, screenReaderText, ...props }) =>
-  React.createElement(
+  createElement(
     'button',
     { ...props, [screenReaderText ? 'aria-label' : '']: screenReaderText },
     screenReaderText ? <span className='sr-only'>{screenReaderText}</span> : null,

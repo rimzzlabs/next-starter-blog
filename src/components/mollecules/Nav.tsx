@@ -1,20 +1,20 @@
 import UnstyledLink from '@/components/atoms/UnstyledLink'
 
 import { APP_ROUTE } from '@/constant/route'
+import { twclsx } from '@/libs/twclsx'
 
-import clsx from 'clsx'
 import { useRouter } from 'next/router'
 
 const Nav = () => {
   const { pathname } = useRouter()
 
   return (
-    <nav className={clsx('md:flex items-center space-x-4', 'hidden')}>
+    <nav className={twclsx('md:flex items-center space-x-4', 'hidden')}>
       {APP_ROUTE.map((item, id) => (
         <UnstyledLink
           key={id}
           href={item.href}
-          className={clsx(
+          className={twclsx(
             'px-1.5 py-0.5 transition font-semibold bg-gradient-to-tr',
             pathname === item.href
               ? 'text-main-1 dark:text-primary-2 from-primary-3 to-secondary-3 dark:bg-none'

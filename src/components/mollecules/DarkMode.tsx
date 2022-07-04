@@ -1,9 +1,9 @@
 import Button from '@/components/atoms/Button'
 
 import useDarkMode from '@/hooks/useDarkMode'
+import { twclsx } from '@/libs/twclsx'
 
 import { MoonIcon, SunIcon } from '@heroicons/react/solid'
-import clsx from 'clsx'
 
 const DarkMode = () => {
   const { theme, mounted, changeTheme } = useDarkMode()
@@ -14,7 +14,7 @@ const DarkMode = () => {
     <Button
       onClick={changeTheme}
       screenReaderText='Switch to dark mode or light mode'
-      className={clsx(
+      className={twclsx(
         'inline-flex items-center justify-center',
         'w-9 h-9 rounded-lg transition-all hover:ring',
         'bg-main-1.5 dark:bg-main-4',

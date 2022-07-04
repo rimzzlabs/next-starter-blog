@@ -1,4 +1,5 @@
-import clsx from 'clsx'
+import { twclsx } from '@/libs/twclsx'
+
 import Link, { LinkProps } from 'next/link'
 
 export type UnstyledLinkProps = {
@@ -17,7 +18,7 @@ export type UnstyledLinkProps = {
 const UnstyledLink: React.FunctionComponent<UnstyledLinkProps> = ({ href, className, children, ...props }) => {
   if (href.toString().startsWith('http')) {
     return (
-      <a {...props} href={href as string} className={clsx(className)} target='_blank' rel='noopener noreferrer'>
+      <a {...props} href={href as string} className={twclsx(className)} target='_blank' rel='noopener noreferrer'>
         {props.sr && <span className='sr-only'>{props.sr}</span>}
         {children}
       </a>
@@ -26,7 +27,7 @@ const UnstyledLink: React.FunctionComponent<UnstyledLinkProps> = ({ href, classN
   return (
     // DISABLE DEFAULT SCROLL TO TOP ON NEXTJS LINK
     <Link {...props} scroll={false} href={href}>
-      <a title={props.sr} onClick={props.onClick} className={clsx(className)}>
+      <a title={props.sr} onClick={props.onClick} className={twclsx(className)}>
         {props.sr && <span className='sr-only'>{props.sr}</span>}
         {children}
       </a>

@@ -2,8 +2,8 @@ import UnstyledLink from '@/components/atoms/UnstyledLink'
 
 import { APP_ROUTE } from '@/constant/route'
 import useDrawer from '@/hooks/useDrawer'
+import { twclsx } from '@/libs/twclsx'
 
-import clsx from 'clsx'
 import { Variants, m } from 'framer-motion'
 import { useRouter } from 'next/router'
 
@@ -33,7 +33,7 @@ const Drawer = () => {
   return (
     <aside
       aria-labelledby='toggle drawer'
-      className={clsx(
+      className={twclsx(
         'fixed left-0 bottom-0 top-20 z-50',
         'w-screen h-screen backdrop-blur',
         'bg-main-1 dark:bg-main-5',
@@ -48,7 +48,7 @@ const Drawer = () => {
                 key={id}
                 href={prop.href}
                 onClick={changeState}
-                className={clsx(
+                className={twclsx(
                   'inline-flex text-left w-full',
                   'py-4 border-b-2 font-bold',
                   pathname === prop.href
