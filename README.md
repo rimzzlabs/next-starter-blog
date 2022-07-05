@@ -7,6 +7,7 @@
 </p>
 
 **Tech Stack:**
+
 - 👾 NEXT.js for the core
 - 🌀 Jotai for your app's state
 - 🧰 TypeScript

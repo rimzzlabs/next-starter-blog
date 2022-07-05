@@ -1,5 +1,5 @@
+import MDXComponents from '@/components/contents'
 import CustomImage from '@/components/mollecules/CustomImage'
-import MDXComponents from '@/components/organism/MDXComponents'
 import Layout from '@/components/template/Layout'
 
 import { getBlog, getBlogBySlug } from '@/helpers'
