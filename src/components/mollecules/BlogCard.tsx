@@ -1,9 +1,10 @@
 import UnstyledLink from '@/components/atoms/UnstyledLink'
 
-import { BlogProps } from '@/data/blog/blog.type'
 import { twclsx } from '@/libs/twclsx'
 
-interface BlogCardProps extends BlogProps {
+import { Blog } from 'next-starter-blog'
+
+interface BlogCardProps extends Blog {
   slug: string
   layout: 'row' | 'column'
 }
