@@ -54,7 +54,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ data, mdxSource }) => {
               className='rounded-full'
             />
             <p className='text-sm md:text-base'>
-              Written by {data.author_name} — on{' '}
+              Written by {data.author_name} /{' '}
               <time dateTime={dateStringToISO(data.published)}>{dateFormat(data.published)}</time>
             </p>
           </div>
