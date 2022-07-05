@@ -1,11 +1,12 @@
 import BlogCard from '@/components/mollecules/BlogCard'
 
-import { BlogProps } from '@/data/blog/blog.type'
 import { twclsx } from '@/libs/twclsx'
+
+import { Blog } from 'next-starter-blog'
 
 interface BlogListProps {
   title: string
-  blogs: Array<BlogProps & { slug: string }>
+  blogs: Array<Blog>
   layout?: 'column' | 'row'
   className?: string
   children?: React.ReactNode
