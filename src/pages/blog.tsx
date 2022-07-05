@@ -3,11 +3,11 @@ import BlogList from '@/components/organism/BlogList'
 import Hero from '@/components/template/Hero'
 import Layout from '@/components/template/Layout'
 
-import { BlogProps } from '@/data/blog/blog.type'
-import getBlog from '@/helpers/getBlog'
+import { getBlog } from '@/helpers'
 import useSearchBlogQuery from '@/hooks/useSearchBlogQuery'
 
 import type { GetStaticProps, NextPage } from 'next'
+import { Blog } from 'next-starter-blog'
 
 const meta = {
   title: 'Blog',
@@ -15,8 +15,8 @@ const meta = {
 }
 
 interface BlogPageProps {
-  latestPost: Array<BlogProps & { slug: string }>
-  allPost: Array<BlogProps & { slug: string }>
+  latestPost: Array<Blog>
+  allPost: Array<Blog>
 }
 
 const BlogPage: NextPage<BlogPageProps> = ({ latestPost = [], allPost = [] }) => {

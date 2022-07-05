@@ -1,5 +1,5 @@
-import fs from 'fs/promises'
-import path from 'path'
+import * as fs from 'fs/promises'
+import * as path from 'path'
 
 export const CONTENT_DIRECTORY = path.join(process.cwd(), 'src/data')
 

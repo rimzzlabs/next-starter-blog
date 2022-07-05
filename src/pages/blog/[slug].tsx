@@ -2,16 +2,16 @@ import CustomImage from '@/components/mollecules/CustomImage'
 import MDXComponents from '@/components/organism/MDXComponents'
 import Layout from '@/components/template/Layout'
 
-import { BlogProps } from '@/data/blog/blog.type'
-import getBlog, { getBlogBySlug } from '@/helpers/getBlog'
+import { getBlog, getBlogBySlug } from '@/helpers'
 import useMediaQuery from '@/hooks/useMediaQuery'
 import useMetaData from '@/hooks/useMetaData'
 import { dateFormat, dateStringToISO } from '@/libs/dateFormat'
+import { twclsx } from '@/libs/twclsx'
 
-import clsx from 'clsx'
 import { GetStaticPaths, GetStaticPathsResult, GetStaticProps, NextPage } from 'next'
 import { MDXRemote, MDXRemoteProps, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
+import { Blog } from 'next-starter-blog'
 import 'prism-themes/themes/prism-night-owl.css'
 import { ParsedUrlQuery } from 'querystring'
 
@@ -21,7 +21,7 @@ interface URLSlug extends ParsedUrlQuery {
 
 interface BlogPostProps {
   mdxSource: MDXRemoteSerializeResult
-  data: BlogProps & { slug: string }
+  data: Blog
 }
 
 const BlogPost: NextPage<BlogPostProps> = ({ data, mdxSource }) => {
@@ -61,7 +61,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ data, mdxSource }) => {
         </section>
 
         <section
-          className={clsx(
+          className={twclsx(
             'prose md:prose-lg dark:prose-invert py-20',
             'prose-a:no-underline prose-a:font-semibold prose-a:text-primary-4'
           )}

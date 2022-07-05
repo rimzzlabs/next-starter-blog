@@ -1,10 +1,10 @@
 import { CustomSeoProps } from '@/components/atoms/CustomSeo'
 
-import { BlogProps } from '@/data/blog/blog.type'
-
 import { dateStringToISO } from './dateFormat'
 
-export interface MetaData extends BlogProps {
+import { Blog } from 'next-starter-blog'
+
+export interface MetaData extends Blog {
   slug: string
 }
 
