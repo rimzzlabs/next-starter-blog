@@ -1,7 +1,7 @@
 import Button from '@/components/atoms/Button'
 import Drawer from '@/components/organism/Drawer'
 
-import useDrawer from '@/hooks/useDrawer'
+import { useDrawer } from '@/hooks'
 import { twclsx } from '@/libs/twclsx'
 
 import { MenuAlt4Icon, XIcon } from '@heroicons/react/outline'

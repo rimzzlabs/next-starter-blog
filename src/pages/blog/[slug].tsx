@@ -3,8 +3,7 @@ import CustomImage from '@/components/mollecules/CustomImage'
 import Layout from '@/components/template/Layout'
 
 import { getBlog, getBlogBySlug } from '@/helpers'
-import useMediaQuery from '@/hooks/useMediaQuery'
-import useMetaData from '@/hooks/useMetaData'
+import { useMediaQuery, useMetaData } from '@/hooks'
 import { dateFormat, dateStringToISO } from '@/libs/dateFormat'
 import { twclsx } from '@/libs/twclsx'
 

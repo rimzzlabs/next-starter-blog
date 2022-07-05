@@ -4,7 +4,7 @@ import Hero from '@/components/template/Hero'
 import Layout from '@/components/template/Layout'
 
 import { getBlog } from '@/helpers'
-import useSearchBlogQuery from '@/hooks/useSearchBlogQuery'
+import { useSearchBlogQuery } from '@/hooks'
 
 import type { GetStaticProps, NextPage } from 'next'
 import { Blog } from 'next-starter-blog'

@@ -1,6 +1,6 @@
 import Button from '@/components/atoms/Button'
 
-import useDarkMode from '@/hooks/useDarkMode'
+import { useDarkMode } from '@/hooks'
 import { twclsx } from '@/libs/twclsx'
 
 import { MoonIcon, SunIcon } from '@heroicons/react/solid'
