@@ -2,8 +2,9 @@ import Button from '@/components/atoms/Button'
 
 import { twclsx } from '@/libs/twclsx'
 
-import { CheckCircleIcon, ClipboardCopyIcon } from '@heroicons/react/solid'
+import { ClipboardCopyIcon } from '@heroicons/react/solid'
 import { useEffect, useRef, useState } from 'react'
+import { Tooltip, TooltipProps } from 'react-tippy'
 
 interface PreProps {
   children: React.ReactNode
@@ -13,6 +14,11 @@ interface PreProps {
 const Pre: React.FunctionComponent<PreProps> = ({ children, className }) => {
   const [isCopied, setIsCopied] = useState<boolean>(false)
   const preRef = useRef<HTMLPreElement>(null)
+  const tooltipProps = {
+    title: isCopied ? 'Snippet copied✅' : 'Copy to clipboard',
+    interactive: true,
+    hideOnClick: false
+  } as TooltipProps
 
   const copyToClipboard = async () => {
     if (preRef.current && !isCopied) {
@@ -22,9 +28,11 @@ const Pre: React.FunctionComponent<PreProps> = ({ children, className }) => {
   }
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsCopied(false), 1500)
+    if (isCopied) {
+      const timer = setTimeout(() => setIsCopied(false), 1500)
 
-    return () => clearTimeout(timer)
+      return () => clearTimeout(timer)
+    }
   }, [isCopied])
 
   return (
@@ -52,23 +60,22 @@ const Pre: React.FunctionComponent<PreProps> = ({ children, className }) => {
           'bg-slate-700 dark:bg-slate-800'
         )}
       >
-        <Button
-          onClick={copyToClipboard}
-          screenReaderText='Copy To Clipboard'
-          className={twclsx(
-            'group relative',
-            'inline-flex items-center justify-center',
-            'w-8 h-8 rounded-lg transition-all duration-200',
-            'ring-main-2',
-            'hover:ring'
-          )}
-        >
-          {isCopied ? (
-            <CheckCircleIcon className='w-4 h-4 text-emerald-500' />
-          ) : (
+        <Tooltip {...tooltipProps}>
+          <Button
+            onClick={copyToClipboard}
+            screenReaderText='Copy To Clipboard'
+            className={twclsx(
+              'group relative',
+              'inline-flex items-center justify-center',
+              'w-8 h-8 rounded-lg transition-all duration-200',
+              'ring-main-2',
+              'hover:ring'
+            )}
+          >
+            {/* // <CheckCircleIcon className='w-4 h-4 text-emerald-500' /> */}
             <ClipboardCopyIcon className='w-4 h-4 text-main-1' />
-          )}
-        </Button>
+          </Button>
+        </Tooltip>
       </div>
       <pre ref={preRef} className={twclsx('pt-[3.5rem!important]')}>
         {children}
