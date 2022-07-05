@@ -1,8 +1,7 @@
-import { BlogProps } from '@/data/blog/blog.type'
-
+import { Blog } from 'next-starter-blog'
 import { useEffect, useState } from 'react'
 
-type BlogList = Array<BlogProps & { slug: string }>
+type BlogList = Array<Blog>
 
 const useSearchBlogQuery = (blogList: BlogList) => {
   const [query, setQuery] = useState('')
