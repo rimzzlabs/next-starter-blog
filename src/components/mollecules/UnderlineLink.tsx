@@ -10,6 +10,7 @@ const UnderlineLink: React.FC<UnderlineLinkProps> = ({ children, ...props }) => 
   return (
     <UnstyledLink
       className={twclsx(
+        'inline-flex',
         'relative border-b-2 border-dotted font-semibold',
         'border-main-3 dark:border-main-2',
         'after:absolute after:-bottom-0.5 after:left-0 hover:after:w-full',
