@@ -7,7 +7,7 @@ import { useEffect } from 'react'
  *
  * @param query - a string of media query.
  * @example ```tsx
- * const isMedium = useMediaQuery('(min-width: 768px')
+ * const isMedium = useMediaQuery('(min-width: 768px)')
  * ```
  * @returns `true` or `false`
  */
