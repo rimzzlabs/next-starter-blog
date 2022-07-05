@@ -54,7 +54,6 @@ const CustomImage: React.FunctionComponent<CustomImageProps> = ({
       width={width}
       height={height}
       loading='lazy'
-      objectFit='cover'
       //   placeholder='blur'
       //   blurDataURL='/static/images/blur.png'
       {...props}
