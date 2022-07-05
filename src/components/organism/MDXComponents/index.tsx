@@ -3,6 +3,8 @@ import InlineCode from '@/components/contents/InlineCode'
 import Pre from '@/components/contents/Pre'
 import UnderlineLink from '@/components/mollecules/UnderlineLink'
 
+import { MDXRemoteProps } from 'next-mdx-remote'
+
 const MDXComponents = {
   a: UnderlineLink,
   blockquote: Blockquote,
@@ -10,4 +12,4 @@ const MDXComponents = {
   pre: Pre
 }
 
-export default MDXComponents
+export default MDXComponents as MDXRemoteProps['components']

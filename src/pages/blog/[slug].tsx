@@ -9,7 +9,7 @@ import { dateFormat, dateStringToISO } from '@/libs/dateFormat'
 import { twclsx } from '@/libs/twclsx'
 
 import { GetStaticPaths, GetStaticPathsResult, GetStaticProps, NextPage } from 'next'
-import { MDXRemote, MDXRemoteProps, MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { Blog } from 'next-starter-blog'
 import 'prism-themes/themes/prism-night-owl.css'
@@ -66,7 +66,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ data, mdxSource }) => {
             'prose-a:no-underline prose-a:font-semibold prose-a:text-primary-4'
           )}
         >
-          <MDXRemote {...mdxSource} components={MDXComponents as MDXRemoteProps['components']} />
+          <MDXRemote {...mdxSource} components={MDXComponents} />
         </section>
       </article>
     </Layout>
