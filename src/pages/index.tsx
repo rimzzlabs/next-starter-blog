@@ -1,21 +1,20 @@
 import UnstyledLink from '@/components/atoms/UnstyledLink'
 import BlogList from '@/components/organism/BlogList'
-import Hero from '@/components/template/Hero'
+import HeroWithPhoto from '@/components/template/HeroWithPhoto'
 import Layout from '@/components/template/Layout'
 
-import { BlogProps } from '@/data/blog/blog.type'
-import getBlog from '@/helpers/getBlog'
+import { getBlog, ownerName } from '@/helpers'
 import { twclsx } from '@/libs/twclsx'
 
 import { ArrowSmRightIcon } from '@heroicons/react/outline'
 import type { GetStaticProps, NextPage } from 'next'
+import { Blog } from 'next-starter-blog'
 
 interface HomeProps {
-  blogs: Array<BlogProps & { slug: string }>
+  blogs: Array<Blog>
 }
 
 const Home: NextPage<HomeProps> = ({ blogs = [] }) => {
-  const ownerName: string = process.env.NEXT_PUBLIC_OWNER_NAME as string
   const meta = {
     title: ownerName,
     template: 'Personal Blog',
@@ -34,12 +33,12 @@ const Home: NextPage<HomeProps> = ({ blogs = [] }) => {
 
   return (
     <Layout as='main' {...meta}>
-      <Hero {...meta}>
-        <p className={twclsx('max-w-prose')}>
+      <HeroWithPhoto image='/static/avatar.jpg' imageAlt={ownerName} {...meta}>
+        <p className={twclsx('max-w-prose mt-2')}>
           If you want to get in touch with me, please catch me on one of my social media, I&apos;m always open when
           I&apos;m out of my office.
         </p>
-      </Hero>
+      </HeroWithPhoto>
 
       <BlogList blogs={blogs} title='Featured Post'>
         <UnstyledLink
